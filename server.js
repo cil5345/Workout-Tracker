@@ -61,15 +61,14 @@ app.put("/api/workouts/:id", (req, res) => {
 });
 //FIND WORKOUT RANGE
 app.get("/api/workouts/range", (req, res) => {
-    db.Workout.find({}).limit(7)
-      .then(dbWorkouts => {
-        console.log(dbWorkouts)
-        res.json(dbWorkouts);
-      })
-      .catch(err => {
-        res.json(err);
-      });
-  });
+    db.Workout.find({})
+        .then(exercise => {
+            res.json(exercise);
+        })
+        .catch(err => {
+            res.json(err);
+        });
+})
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
 });
